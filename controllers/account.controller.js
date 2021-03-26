@@ -16,4 +16,4 @@ const account = {
     }
 }
 
-module.exports = account;
+module.exports = {account};

@@ -1,20 +1,17 @@
 
 require("dotenv").config();
-const okra = require("npm-okrajs");
+const okra = require("okra-node");
 const axios = require("axios");
-
-axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const account = {
     get: async (req, res, next) =>{
         try {
-            const {account_no, account_name} = req.data;
-            const base_url = process.env.api_url;
-            axios.get(`${base_url}/products/accounts`, 
-            
-            )
-
+            const token = process.env.client_token;
+            const result =  okra.getCustomerByIdentity(token, {type: "BVN", value: "" }, (err, result) => {
+                if(err) return Error(err);
+                return result.identity;
+            });
+            res.json({data: result});
         } catch (error) {
             console.log(error);
         }

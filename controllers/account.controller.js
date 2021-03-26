@@ -5,18 +5,15 @@ const account = {
   get: async (req, res, next) => {
     try {
       const token = process.env.private_key;
-      //console.log(token);
-      const result = await okra.getCustomerByIdentity(
-        token,
-        {type:"bvn", value:"38261936382"},
-        (err, result) => {
-          if (err) return Error(err);
-        return result.identity;
-        }
-      );
-      res.json({ data: result });
+        //console.log(token);
+        const id = await okra.getBanks((err, results) => {
+        // Handle err
+        const banks = results.banks;
+        return banks;
+        });
+      return res.json(id);
     } catch (error) {
-      return {error};
+      res.json(error.message);
     }
   },
 };

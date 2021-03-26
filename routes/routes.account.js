@@ -3,6 +3,6 @@ const router = Router();
 
 const {account} =  require("../controllers/account.controller");
 
-router.get("/verify", account.get);
+router.post("/verify", account.get);
 
 module.exports = router;

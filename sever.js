@@ -9,9 +9,7 @@ app.use(express.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: "50mb", extended: true }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-    res.send("Hellow world");
-})
+
 
 app.listen(port, () => console.log(`Application listening in ${port}`));
 

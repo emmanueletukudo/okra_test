@@ -6,9 +6,9 @@ const account = {
     try {
       const token = process.env.private_key;
       //console.log(token);
-      const result = await okra.getTotalDebitCredits(
+      const result = await okra.getCustomerByIdentity(
         token,
-        {account:"5e1efdsa842182515cedd066"},
+        {type:"bvn", value:"38261936382"},
         (err, result) => {
           if (err) return Error(err);
         return result.identity;

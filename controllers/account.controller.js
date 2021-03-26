@@ -7,7 +7,7 @@ const account = {
     get: async (req, res, next) =>{
         try {
             const token = process.env.client_token;
-            const result =  okra.getCustomerByIdentity(token, {type: "BVN", value: "" }, (err, result) => {
+            const result =  okra.getCustomerByIdentity(token, {type: "BVN", value: "38261936382" }, (err, result) => {
                 if(err) return Error(err);
                 return result.identity;
             });

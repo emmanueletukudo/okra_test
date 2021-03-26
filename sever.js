@@ -3,8 +3,9 @@ const app = express();
 const router = express.Router();
 const port = process.env.PORT || 5000;
 
-router.get("/", (req, res) => {
-    res.send("Hellow World");
-});
+const accout = require("./routes/routes.account");
+
+
+app.use("/api/account", accout);
 
 app.listen(() => console.log(`Application listening in ${port}`));

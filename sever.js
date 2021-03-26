@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 5000;
-const account = require("./routes/routes.account");
+const banks = require("./routes/routes.banks");
 
 
 const app = express();
@@ -13,4 +13,4 @@ app.use(bodyParser.json());
 
 app.listen(port, () => console.log(`Application listening in ${port}`));
 
-app.use("/api/account", account);
+app.use("/api/v1", banks);

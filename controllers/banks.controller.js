@@ -2,7 +2,7 @@ require("dotenv").config();
 const okra = require("okra-node");
 
 const account = {
-  get: async (req, res, next) => {
+  banks: async (req, res, next) => {
     try {
       const token = process.env.private_key;
         //console.log(token);
